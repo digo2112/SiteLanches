@@ -1,0 +1,25 @@
+﻿@model IEnumerable<SiteLanches.Models.Lanche>
+
+@{
+    ViewData["Title"] = "List";
+    
+}
+
+<h1>Lanches</h1>
+<div></div><h1>@ViewData["Titulo"]</h1></div>
+
+<h2>@ViewData["Data"]</h2>
+<hr />
+<h6>@ViewBag.Total @ViewBag.TotalLanches</h6>
+<hr />
+<hr />
+
+@foreach (var lanche in Model) {
+        <div>
+           <h4>@lanche.Nome</h4>
+           <p><img src="@lanche.ImagemUrl" /></p>
+           <h3>Preço: @lanche.Preco.ToString("c")</h3>
+        </div>
+}
+ 
+
