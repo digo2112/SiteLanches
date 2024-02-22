@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/0VBAyN0aT5PampnoPzm3eSXetdrERVByMLX+Qqprbo=",
+  "Hash": "zM+siqv1K6beS0sbJ7fPvOMxYsFiasr1NIXl9yajDYU=",
   "Source": "SiteLanches",
   "BasePath": "_content/SiteLanches",
   "Mode": "Default",
@@ -83,6 +83,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\images\\carrinhoMendigo.jpg",
+      "SourceId": "SiteLanches",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\",
+      "BasePath": "_content/SiteLanches",
+      "RelativePath": "images/carrinhoMendigo.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\carrinhoMendigo.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\images\\saquinhoLixo.jpg",
+      "SourceId": "SiteLanches",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\",
+      "BasePath": "_content/SiteLanches",
+      "RelativePath": "images/saquinhoLixo.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\saquinhoLixo.jpg"
     },
     {
       "Identity": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\js\\site.js",

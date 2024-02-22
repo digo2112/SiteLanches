@@ -13,19 +13,20 @@
 <h6>@ViewBag.Total @ViewBag.TotalLanches</h6>
 <hr />
 <hr />
-<div class="container"> 
-<div class="row"> 
-@foreach (var lanche in Model.Lanches)
-{
-    <div class="col-sm-4 col-md-4 col-lg-4 ">
-        <p><img src="@lanche.ImagemUrl" class=" = "img-fluid"></p>
-        <h4>@lanche.Nome</h4>
-        <h3>Preço: @lanche.Preco.ToString("c")</h3>
-        <h5>@lanche.DescricaoCurta</h5>
-        
-
+<div class="container">
+    <div class="row">
+        @foreach (var lanche in Model.Lanches)
+        {
+            <!--   comentei pra usar a partial view-->
+            <!--
+              <div>
+                <h4>@lanche.Nome</h4>
+                <p><img src="@lanche.ImagemUrl"></p>
+                <h3>Preço : @lanche.Preco.ToString("c")</h3>
+            </div>
+            -->
+            <partial name="_LanchesResumo" for ="@lanche" />
+        }
     </div>
-}
-</div>
 </div>
 

@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\images\\carrinhoMendigo.jpg",
+      "PackagePath": "staticwebassets\\images\\carrinhoMendigo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\images\\saquinhoLixo.jpg",
+      "PackagePath": "staticwebassets\\images\\saquinhoLixo.jpg"
+    },
+    {
       "Id": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

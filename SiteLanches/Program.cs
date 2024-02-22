@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SiteLanches.Context;
+using SiteLanches.Models;
 using SiteLanches.Repositories;
 using SiteLanches.Repositories.Interfaces;
 
@@ -14,7 +15,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddTransient<ILanchesRepository, LancheRepository>();
 builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>();
 
+builder.Services.AddMemoryCache();
+builder.Services.AddSession();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+builder.Services.AddScoped(sp => CarrinhoCompra.GetCarrinho(sp));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -28,6 +33,9 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+
+app.UseSession();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SiteLanches.Context;
 
@@ -10,9 +11,10 @@ using SiteLanches.Context;
 namespace SiteLanches.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240205190654_Teste2024")]
+    partial class Teste2024
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -20,32 +22,6 @@ namespace SiteLanches.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("SiteLanches.Models.CarrinhoCompraItem", b =>
-                {
-                    b.Property<int>("CarrinhoCompraItemId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CarrinhoCompraItemId"), 1L, 1);
-
-                    b.Property<string>("CarrinhoCompraId")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<int>("LancheId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantidade")
-                        .HasColumnType("int");
-
-                    b.HasKey("CarrinhoCompraItemId");
-
-                    b.HasIndex("LancheId");
-
-                    b.ToTable("CarrinhoCompraItens");
-                });
 
             modelBuilder.Entity("SiteLanches.Models.Categoria", b =>
                 {
@@ -120,17 +96,6 @@ namespace SiteLanches.Migrations
                     b.HasIndex("CategoriaId");
 
                     b.ToTable("Lanches");
-                });
-
-            modelBuilder.Entity("SiteLanches.Models.CarrinhoCompraItem", b =>
-                {
-                    b.HasOne("SiteLanches.Models.Lanche", "Lanche")
-                        .WithMany()
-                        .HasForeignKey("LancheId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Lanche");
                 });
 
             modelBuilder.Entity("SiteLanches.Models.Lanche", b =>
