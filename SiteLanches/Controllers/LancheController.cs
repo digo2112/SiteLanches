@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using SiteLanches.Models;
+using SiteLanches.Repositories;
 using SiteLanches.Repositories.Interfaces;
 using SiteLanches.ViewModels;
 
@@ -85,5 +86,38 @@ namespace SiteLanches.Controllers
             var lanche = _lanchesRepository.Lanches.FirstOrDefault(l => l.LancheId == LancheId);
             return View(lanche);
         }
+
+
+
+        public ViewResult Search(string searchString)
+        {
+            IEnumerable<Lanche> lanches = Enumerable.Empty<Lanche>(); 
+            string categoriaAtual = string.Empty;
+
+            if (string.IsNullOrEmpty(searchString))
+            {
+                lanches = _lanchesRepository.Lanches.OrderBy(l => l.LancheId);
+                categoriaAtual = "Todos os lanches";
+
+            }
+            else
+            {
+
+                lanches = _lanchesRepository.Lanches
+                           .Where(p => p.Nome.ToLower().Contains(searchString.ToLower()));
+
+                if (lanches.Any())
+                    categoriaAtual = "Lanches";
+                else
+                    categoriaAtual = "Nenhum lanche foi encontrado";
+            }
+            return View("~/Views/Lanche/List.cshtml", new LanchesListViewModel
+            {
+                Lanches = lanches,
+                CategoriaAtual = categoriaAtual
+            });
+        }
+
+
     }
 }
