@@ -45,7 +45,10 @@ namespace SiteLanches.Models
             var carrinhoCompraItem = _context.CarrinhoCompraItens.SingleOrDefault(
                 s => s.Lanche.LancheId == lanche.LancheId &&
                 s.CarrinhoCompraId == CarrinhoCompraId);
-
+            
+           /* var carrinhoCompraItem = _context.CarrinhoCompraItens.SingleOrDefault(
+                s => s.Lanche.LancheId == lanche.LancheId);
+           */
             if (carrinhoCompraItem == null)
             {
                 carrinhoCompraItem = new CarrinhoCompraItem

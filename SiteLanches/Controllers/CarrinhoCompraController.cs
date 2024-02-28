@@ -16,33 +16,39 @@ namespace SiteLanches.Controllers
             _lanchesRepository = lanchesRepository;
             _carrinhoCompra = carrinhoCompra;
         }
-
+         
         public IActionResult Index()
         {
             var itens = _carrinhoCompra.GetCarrinhoCompraItems();
             _carrinhoCompra.CarrinhoCompraItens = itens;
 
+
             var carrinhoCompraVM = new CarrinhoCompraViewModel
             {
                 CarrinhoCompra = _carrinhoCompra,
-                CarrinhoCompraTotal = _carrinhoCompra.GetCarrinhoCompraTotal(),
+                CarrinhoCompraTotal = _carrinhoCompra.GetCarrinhoCompraTotal()
             };
 
-            return View();
+            return View(carrinhoCompraVM);
+
         }
 
-        public IActionResult AdiconarItemNoCarrinho(int ID)
+        public IActionResult AdiconarItemNoCarrinho(int lancheId)//ID ta vindo nulo 
         {
-
-            var lancheSelecionado = _lanchesRepository.Lanches.FirstOrDefault(l => l.LancheId == ID);
-            if (lancheSelecionado != null) _carrinhoCompra.AdicionarAoCarrinho(lancheSelecionado);
+            
+            var lancheSelecionado = _lanchesRepository.Lanches.FirstOrDefault(l => l.LancheId == lancheId);
+             if (lancheSelecionado != null) _carrinhoCompra.AdicionarAoCarrinho(lancheSelecionado);
+            //_carrinhoCompra.AdicionarAoCarrinho(lancheSelecionado); //vendo onde esta o erro de add no carrinho
             return RedirectToAction("Index");
+
+           // return RedirectToAction("Index");
+
         }
 
-        public IActionResult RemoverItemNoCarrinho(int ID)
+        public IActionResult RemoverItemNoCarrinho(int lancheId)
         {
 
-            var lancheSelecionado = _lanchesRepository.Lanches.FirstOrDefault(l => l.LancheId == ID);
+            var lancheSelecionado = _lanchesRepository.Lanches.FirstOrDefault(l => l.LancheId == lancheId);
             if (lancheSelecionado != null) _carrinhoCompra.RemoverDoCarrinho(lancheSelecionado);
             return RedirectToAction("Index");
         }

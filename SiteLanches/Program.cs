@@ -35,6 +35,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 
+
 app.UseSession();
 
 app.UseHttpsRedirection();
@@ -44,8 +45,43 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+/*
+ * 
+ * TAVA PADARAO ESSE VOU USAR ENDPOITS COMO NO CURSO 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+*/
+
+app.UseEndpoints(endpoints =>
+{
+    /*
+     * utilizado apenas pra mostrar fuincionanemto
+    endpoints.MapControllerRoute(
+       name: "teste",
+       pattern: "testeme",
+       defaults: new { Controller = "teste", action = "Index" });
+
+    endpoints.MapControllerRoute(
+       name: "admin",
+       pattern: "admin/{action=Index}/{id?}",
+       defaults: new { Controller = "admin"});
+
+
+    */
+
+
+
+    endpoints.MapControllerRoute(
+       name: "categoriaFiltro",
+       pattern: "Lanche/{action}/{categoria?}",
+       defaults: new { Controller = "Lanche", action = "List" });
+
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+});
+
 
 app.Run();
