@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SiteLanches.Models;
 using SiteLanches.Repositories.Interfaces;
 
@@ -16,11 +17,15 @@ namespace SiteLanches.Controllers
             this.carrinhoCompra = carrinhoCompra;//gerou com this, mas o cara fez sem
         }
 
+
+        [Authorize]
         [HttpGet]
         public ActionResult Checkout()
         {
             return View();
         }
+
+        [Authorize]
         [HttpPost]
         public IActionResult Checkout(Pedido pedido)
         {

@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\images\\faleconosco1.jpg"
     },
     {
+      "Id": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\images\\login.jpg",
+      "PackagePath": "staticwebassets\\images\\login.jpg"
+    },
+    {
       "Id": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\images\\phone-app-icon.png",
       "PackagePath": "staticwebassets\\images\\phone-app-icon.png"
     },

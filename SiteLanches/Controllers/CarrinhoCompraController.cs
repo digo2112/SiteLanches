@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SiteLanches.Models;
 using SiteLanches.Repositories.Interfaces;
 using SiteLanches.ViewModels;
@@ -33,6 +34,7 @@ namespace SiteLanches.Controllers
 
         }
 
+        //[Authorize] //nao sei pq por, fazer depois pra caso nao esteja logado, aparecer a tela de login
         public IActionResult AdiconarItemNoCarrinho(int lancheId)//ID ta vindo nulo 
         {
             
@@ -44,7 +46,7 @@ namespace SiteLanches.Controllers
            // return RedirectToAction("Index");
 
         }
-
+        //[Authorize]
         public IActionResult RemoverItemNoCarrinho(int lancheId)
         {
 

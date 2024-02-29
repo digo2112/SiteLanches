@@ -6,7 +6,9 @@ namespace SiteLanches.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            //nao entendi pq aqui no contato...
+            if(User.Identity.IsAuthenticated) return View();
+            return RedirectToAction("Login", "Account");
         }
     }
 }

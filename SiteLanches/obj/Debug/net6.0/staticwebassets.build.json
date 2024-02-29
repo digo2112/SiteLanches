@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "j5Z38E36FrjYHhChQ/PAYXD2m25jEJa6en4viz2EOzw=",
+  "Hash": "pDOG+mZmKvZsSQFmsfA/8vj8m8FppaJrSZwxuycu5YA=",
   "Source": "SiteLanches",
   "BasePath": "_content/SiteLanches",
   "Mode": "Default",
@@ -151,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Home-iconred.png"
+    },
+    {
+      "Identity": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\images\\login.jpg",
+      "SourceId": "SiteLanches",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\",
+      "BasePath": "_content/SiteLanches",
+      "RelativePath": "images/login.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\login.jpg"
     },
     {
       "Identity": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\images\\phone-app-icon.png",
