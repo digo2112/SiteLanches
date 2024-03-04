@@ -64,7 +64,11 @@ namespace SiteLanches.Controllers
 
                 var user = new IdentityUser { UserName = registroVM.UserName };
                 var result = await _userManager.CreateAsync(user, registroVM.Password);
-                if (result.Succeeded) return RedirectToAction("Login", "Account");
+                if (result.Succeeded)
+                {
+                    await _userManager.AddToRoleAsync(user, "Member");
+                    return RedirectToAction("Login", "Account"); 
+                }
                 else this.ModelState.AddModelError("Registro", "Falha ao registrar usuario");
 
 
@@ -82,9 +86,16 @@ namespace SiteLanches.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
+
+        public IActionResult AccessDenied()
+        {
+
+            return View();
+        }
+
     }
 
-
+  
 
 
 }

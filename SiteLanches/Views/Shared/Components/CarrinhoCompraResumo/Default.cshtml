@@ -1,11 +1,34 @@
-﻿@model CarrinhoCompraViewModel
+﻿@*
+@model CarrinhoCompraViewModel
 
 @if (Model.CarrinhoCompra.CarrinhoCompraItens.Count >= 0)//botei o igual
 {
-        <a asp-controller="CarrinhoCompra" asp-action="Index">
-            <span><img src="~/images/cart-5-16.ico" /></span>
-            <span style="color:white">
+    <a asp-controller="CarrinhoCompra" asp-action="Index">
+        <span><img style="height: 25%; width: 25%; object-fit: contain;" src="~/images/carrinho.jpg" alt="Carrinho de compras"></span>
+        <span style="color:white">
+            @Model.CarrinhoCompra.CarrinhoCompraItens.Count
+        </span>
+    </a>
+}
+*@
+
+@model CarrinhoCompraViewModel
+
+@if (Model.CarrinhoCompra.CarrinhoCompraItens.Count >= 0)
+{
+    @*<a asp-controller="CarrinhoCompra" asp-action="Index" style="display: inline-block; text-decoration: none;">
+            <img src="~/images/carrinho.jpg" alt="Carrinho de compras" style="height: 25%; width: 25%; object-fit: contain;">
+            <span style="color:darkcyan;">
             @Model.CarrinhoCompra.CarrinhoCompraItens.Count
             </span>
-        </a>
+        </a>*@
+
+    <a asp-controller="CarrinhoCompra" asp-action="Index" style="display: inline-block; text-decoration: none;">
+        <img src="~/images/carrinho.jpg" alt="Carrinho de compras" style="height: 40px; width: 40px; object-fit: contain;">
+        <span style="color:darkcyan;">
+            @Model.CarrinhoCompra.CarrinhoCompraItens.Count
+        </span>
+    </a>
+
 }
+
