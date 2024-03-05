@@ -5,5 +5,8 @@
 
         void SeedRoles();
         void SeedUsers();
+
+        Task SeedRolesAsync();
+
     }
 }

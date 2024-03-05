@@ -15,6 +15,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+//builder.Services.AddDbContext<AppDbContext>(options =>
+//{
+//    options.UseSqlServer("Server=localhost;Database=SiteLanches;Trusted_Connection=True;");
+//});
+
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
@@ -136,5 +141,6 @@ void CriarPerfisUsuarios(WebApplication app)
         var service = scope.ServiceProvider.GetService<ISeedUserRoleInitial>();
         service.SeedRoles();
         service.SeedUsers();
+        //service.SeedRolesAsync().Wait();
     }
 }

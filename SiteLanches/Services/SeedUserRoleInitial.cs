@@ -1,40 +1,97 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks; // Don't forget to include this namespace
 
 namespace SiteLanches.Services
 {
     public class SeedUserRoleInitial : ISeedUserRoleInitial
     {
-
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManeger;
+        private readonly RoleManager<IdentityRole> _roleManager; // Corrected variable name
 
-        public SeedUserRoleInitial(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManeger)
+        public SeedUserRoleInitial(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
-            _roleManeger = roleManeger;
+            _roleManager = roleManager;
         }
+
+        // Explicit interface implementation
+
+        /*
+        async Task ISeedUserRoleInitial.SeedRolesAsync()
+        {
+            if (!await _roleManager.RoleExistsAsync("Member"))
+            {
+                var role = new IdentityRole("Member");
+                IdentityResult roleResult = await _roleManager.CreateAsync(role);
+                if (!roleResult.Succeeded)
+                {
+                    role.Name = "Member";
+                    role.NormalizedName = "MEMBER";
+                    // Handle role creation failure
+                }
+            }
+
+            if (!await _roleManager.RoleExistsAsync("Admin"))
+            {
+                var role = new IdentityRole("Admin");
+                IdentityResult roleResult = await _roleManager.CreateAsync(role);
+                if (!roleResult.Succeeded)
+                {
+                    role.Name = "Admin";
+                    role.NormalizedName = "ADMIN";
+                }
+            }
+        }*/
 
         public void SeedRoles()
         {
-            if (!_roleManeger.RoleExistsAsync("Member").Result)
+            if (!_roleManager.RoleExistsAsync("Member").Result)
             {
                 IdentityRole role = new IdentityRole();
                 role.Name = "Member";
                 role.NormalizedName = "MEMBER";
-                IdentityResult roleResult = _roleManeger.CreateAsync(role).Result;
+                IdentityResult roleResult = _roleManager.CreateAsync(role).Result;
 
             }
 
-            if (!_roleManeger.RoleExistsAsync("Admin").Result)
+            if (!_roleManager.RoleExistsAsync("Admin").Result)
             {
                 IdentityRole role = new IdentityRole();
                 role.Name = "Admin";
                 role.NormalizedName = "ADMIN";
-                IdentityResult roleResult = _roleManeger.CreateAsync(role).Result;
+                IdentityResult roleResult = _roleManager.CreateAsync(role).Result;
 
             }
         }
+        
 
+
+        public async Task SeedRolesAsync()
+        {
+            if (!await _roleManager.RoleExistsAsync("Member"))
+            {
+                var role = new IdentityRole("Member");
+                IdentityResult roleResult = await _roleManager.CreateAsync(role);
+                if (!roleResult.Succeeded)
+                {
+                    role.Name = "Member";
+                    role.NormalizedName = "MEMBER";
+                    // Handle role creation failure
+                }
+            }
+
+            if (!await _roleManager.RoleExistsAsync("Admin"))
+            {
+                var role = new IdentityRole("Admin");
+                IdentityResult roleResult = await _roleManager.CreateAsync(role);
+                if (!roleResult.Succeeded)
+                {
+                    role.Name = "Admin";
+                    role.NormalizedName = "ADMIN"; role.Name = "Admin";
+                    role.NormalizedName = "ADMIN";
+                }
+            }
+        }
         public void SeedUsers()
         {
             if (_userManager.FindByEmailAsync("usuario@localhost").Result == null)
@@ -48,7 +105,7 @@ namespace SiteLanches.Services
                 user.LockoutEnabled = false;
                 user.SecurityStamp = Guid.NewGuid().ToString();
 
-                IdentityResult result = _userManager.CreateAsync(user,"Numsay#2022").Result;
+                IdentityResult result = _userManager.CreateAsync(user, "Numsay#2022").Result;
 
                 if (result.Succeeded)
                 {
@@ -78,6 +135,10 @@ namespace SiteLanches.Services
                 }
 
             }
+
+
+            
+
         }
     }
 }
