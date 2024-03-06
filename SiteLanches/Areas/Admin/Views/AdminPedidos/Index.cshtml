@@ -1,14 +1,43 @@
-﻿@model IEnumerable<SiteLanches.Models.Pedido>
+﻿@using ReflectionIT.Mvc.Paging
+@addTagHelper *, ReflectionIT.Mvc.Paging
+@model PagingList<SiteLanches.Models.Pedido>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Pedidos</h1>
+
+
+<form method ="get" class="form-inline">
+    <input name="filter" class="form-control" placeholder="filtrar"
+    value="@Model.RouteValue["Filter"]" />
+    <button type="submit" class="btn btn-info">
+        <span class="glyphicon glyphicon-search" aria-hidden ="true"> </span> Procurar
+    </button>
+
+</form>
+
+
+@* dando erro nao acha o bootstrap*@
+    <div>
+    <vc:pager paging-list="@Model"></vc:pager>
+</div>
+ 
+
+
+Total de pedidos : @Model.TotalRecordCount
+@*
+    @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model })@await this.Component.InvokeAsync("Pager", new { pagingList = this.Model })
+*@
+
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Criar novvo Pedido</a>
 </p>
+
+
+
 <table class="table">
     <thead>
         <tr>
@@ -87,7 +116,8 @@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.PedidoId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.PedidoId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PedidoId">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.PedidoId">Delete</a> |
+                <a asp-action="PedidoLanche" asp-route-id="@item.PedidoId">Ver itens</a>
             </td>
         </tr>
 }

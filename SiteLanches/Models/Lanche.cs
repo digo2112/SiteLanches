@@ -20,7 +20,7 @@ namespace SiteLanches.Models
         [MinLength(20, ErrorMessage = "Descrição deve ter no mínimo {1} caracteres")]
         [MaxLength(200, ErrorMessage = "Descrição pode exceder {1} caracteres")]
         public string DescricaoCurta { get; set; }
-
+      
         [Required(ErrorMessage = "O descrição detalhada do lanche deve ser informada")]
         [Display(Name = "Descrição detalhada do Lanche")]
         [MinLength(20, ErrorMessage = "Descrição detalhada deve ter no mínimo {1} caracteres")]

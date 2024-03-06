@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using ReflectionIT.Mvc.Paging;
 using SiteLanches.Context;
 using SiteLanches.Models;
 
@@ -22,11 +23,28 @@ namespace SiteLanches.Areas.Admin.Controllers
             _context = context;
         }
 
+
+        /*
         // GET: Admin/AdminLanches
         public async Task<IActionResult> Index()
         {
             var appDbContext = _context.Lanches.Include(l => l.Categoria);
             return View(await appDbContext.ToListAsync());
+        }
+
+        */
+        public async Task<IActionResult> Index(string filter, int pageindex = 1, string sort = "Nome")
+        {
+
+            //var resultado = _context.Lanches.AsNoTracking().AsQueryable();
+            var resultado = _context.Lanches.Include(l => l.Categoria).AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(filter)) resultado = resultado.Where(p => EF.Functions.Collate(p.Nome, "Latin1_General_CI_AI").Contains(filter));
+
+
+            var model = await PagingList.CreateAsync(resultado, 5, pageindex, sort, "Nome");
+            model.RouteValue = new RouteValueDictionary { { "filter", filter } };
+            return View(model);
         }
 
         // GET: Admin/AdminLanches/Details/5

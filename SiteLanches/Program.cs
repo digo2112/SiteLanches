@@ -5,12 +5,15 @@ using SiteLanches.Models;
 using SiteLanches.Repositories;
 using SiteLanches.Repositories.Interfaces;
 using SiteLanches.Services;
+using ReflectionIT.Mvc.Paging;
+using SiteLanches.Areas.Admin.Servicos;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 
-
+    
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -43,7 +46,14 @@ builder.Services.AddAuthorization(options =>
         });
 });
 
+builder.Services.AddPaging(options => {
+    options.ViewName = "Bootstrap5";
+    options.PageParameterName = "pageindex";
+});
 
+
+
+builder.Services.AddScoped<RelatorioVendasService>(); //geralmente nao se faz assim
 
 
 builder.Services.AddScoped(sp => CarrinhoCompra.GetCarrinho(sp));
