@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SiteLanches")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+06bed2cbdd96c108641b0e7d42f50123e7780ae6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9a2a848d149a484193adf31483ebb956d7242b2d")]
 [assembly: System.Reflection.AssemblyProductAttribute("SiteLanches")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SiteLanches")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

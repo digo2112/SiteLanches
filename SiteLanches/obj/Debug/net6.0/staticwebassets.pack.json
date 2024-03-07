@@ -37,6 +37,14 @@
       "PackagePath": "staticwebassets\\images\\carrinhoMendigo.jpg"
     },
     {
+      "Id": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\images\\delete.png",
+      "PackagePath": "staticwebassets\\images\\delete.png"
+    },
+    {
+      "Id": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\images\\erro1.png",
+      "PackagePath": "staticwebassets\\images\\erro1.png"
+    },
+    {
       "Id": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\images\\faleconosco1.jpg",
       "PackagePath": "staticwebassets\\images\\faleconosco1.jpg"
     },
@@ -53,8 +61,20 @@
       "PackagePath": "staticwebassets\\images\\registerNow.jpg"
     },
     {
+      "Id": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\images\\remove.ico",
+      "PackagePath": "staticwebassets\\images\\remove.ico"
+    },
+    {
       "Id": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\images\\saquinhoLixo.jpg",
       "PackagePath": "staticwebassets\\images\\saquinhoLixo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\images\\upload.png",
+      "PackagePath": "staticwebassets\\images\\upload.png"
+    },
+    {
+      "Id": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\images\\visualizar.jpg",
+      "PackagePath": "staticwebassets\\images\\visualizar.jpg"
     },
     {
       "Id": "C:\\Users\\rodrigo\\Desktop\\CursoCNovo\\SiteLanches\\SiteLanches\\wwwroot\\js\\site.js",

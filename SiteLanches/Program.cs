@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 
-    
+
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -46,10 +46,19 @@ builder.Services.AddAuthorization(options =>
         });
 });
 
-builder.Services.AddPaging(options => {
+builder.Services.AddPaging(options =>
+{
     options.ViewName = "Bootstrap5";
     options.PageParameterName = "pageindex";
 });
+
+
+//esse eu vi no arquivo do cara mas nao vi sendo usado em nenhuma aula,
+//pode ter passado batifo mas ate agora nao deu em nada
+builder.Services.ConfigureApplicationCookie(options => options.AccessDeniedPath = "/home/AccessDenied");
+
+
+builder.Services.Configure<ConfigurationImages>(builder.Configuration.GetSection("ConfigurationPastaImages"));
 
 
 
@@ -143,6 +152,8 @@ app.UseEndpoints(endpoints =>
 
 app.Run();
 
+
+//ver isso aqui melhor depois
 void CriarPerfisUsuarios(WebApplication app)
 {
     var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
